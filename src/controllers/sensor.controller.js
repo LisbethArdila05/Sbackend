@@ -32,6 +32,7 @@ export const postData = async (req, res) => {
                 sHumedad: datosArduino.humedad,
                 sTemperaturaC: datosArduino.temperaturaC,
                 sTemperaturaF: datosArduino.temperaturaF,
+                sHumedadS: datosArduino.humedadS,
                 fecha: new Date(), 
                 idtipoPlanta: idPlanta,
                 nombreUser: nombreU

@@ -28,6 +28,7 @@ model sensor{
   sHumedad Float
   sTemperaturaC Float
   sTemperaturaF Float
+  sHumedadS Int
   fecha DateTime
   nombreUsuario Usuario @relation(fields: [nombreUser], references: [nombreUsuario])
   nombreUser String
