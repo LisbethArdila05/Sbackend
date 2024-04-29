@@ -17,11 +17,12 @@ import { EventEmitter } from "events";
     //recibe datos de arduino y los envia al controlador 
      const getDataArduino = () => {
         Parser.on('data', async (line) => {
-            try {
+            try { 
                 arduinoData = JSON.parse(line.trim());
                 dataEmitter.emit('dataReceived', arduinoData)
+                console.log(arduinoData)
             } catch (error) {
-                console.log(error)
+                console.log(error) 
             } finally { }
         });
     }
