@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+model Usuario{
+  id Int @id @default(autoincrement())
+  nombreUsuario String @unique
+  email String @unique
+  contrasena String
+  sensores sensor[]
+}
+model planta{
+  id Int @id @default(autoincrement())
+  tipoPlanta String @unique
+  sHumedadAmbiente String
+  sTemperaturaAmbiente String
+  sHumedadSuelo String
+  sensor sensor[]
+}
+model sensor{
+  id Int @id @default(autoincrement())
+  sHumedad Float
+  sTemperaturaC Float
+  sTemperaturaF Float
+  fecha DateTime
+  nombreUsuario Usuario @relation(fields: [nombreUser], references: [nombreUsuario])
+  nombreUser String
+  tipoPlanta planta @relation(fields: [idtipoPlanta], references: [id])//guarda el tipo de planta que el usuario seleccione en le frontend
+  idtipoPlanta Int
+}
+
+
+
+
+
