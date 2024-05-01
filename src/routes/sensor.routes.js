@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { GetDataDB, postData, GetFirst, getInfo} from "../controllers/sensor.controller.js";
+import { GetDataDB, postData, GetFirst} from "../controllers/sensor.controller.js";
 
 const routes = Router();
 

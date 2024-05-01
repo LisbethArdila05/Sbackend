@@ -9,17 +9,6 @@ dataEmitter.on('dataReceived', async(data) => {
         console.log('error en la conexión',error);
     }
 }); 
-let nombreU;
-export const getInfo = async (req, res) => {
-    try {
-        const decode = req.body.usuario
-        nombreU = decode
-        //console.log(nombreU) 
-    } catch (error) {
-        console.log(error)
-        res.status(400).json({message:'Not Found'})
-    } 
-}    
 export const postData = async (req, res) => {
     let {idPlanta, idUser} = req.body
     idPlanta = Number(idPlanta)
@@ -42,11 +31,12 @@ export const postData = async (req, res) => {
         console.log(error)
     }
 }
+
 export const GetDataDB = async (req, res) => {
     try {
         const GetSensor = await prisma.sensor.findMany({
             where:{
-                nombreUser: nombreU
+                idUser: idUser
             },
             include:{
                 tipoPlanta: true
@@ -61,7 +51,7 @@ export const GetFirst = async (req, res) => {
     try {
         const GetFirstsensor = await prisma.sensor.findFirst({
             where:{
-                nombreUser:nombreU
+                idUser: idUser
             },
             orderBy:{
                 fecha: 'desc'
