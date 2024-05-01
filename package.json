@@ -16,6 +16,7 @@
     "@serialport/parser-readline": "^12.0.0",
     "axios": "^1.6.7",
     "bcryptjs": "^2.4.3",
+    "bluetooth-serial": "^1.0.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "date-fns": "^3.6.0",

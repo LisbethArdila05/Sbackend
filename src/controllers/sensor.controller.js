@@ -1,9 +1,7 @@
 import { prisma } from "../database/db.js";
 import dataEmitter from "../../arduinoConecct.js";
-import { startOfMonth, endOfMonth, formatISO } from 'date-fns';
 
-let datosArduino;
-
+let datosArduino
 dataEmitter.on('dataReceived', async(data) => {
     try {
         datosArduino = data
