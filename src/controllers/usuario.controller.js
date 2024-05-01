@@ -45,31 +45,7 @@ export const LoginUser = async (req, res) => {
         return res.status(500).json({message:'Proceso no exitoso'})   
     }
 } 
-let nombreU;
-export const getInfo = async (req, res) => {
-    try {
-        const decode = req.body.usuario
-        nombreU = decode
-       // console.log(nombreU) 
-    } catch (error) {
-        console.log(error)
-        res.status(400).json({message:'Not Found'})
-    } 
-}
-export const infoUser = async (req, res) =>{
-    try {
-        //console.log(nombreU)
-        const user = await prisma.usuario.findUnique({
-            where:{
-                nombreUsuario: nombreU
-            }
-        })
-    res.status(200).json(user)
-    } catch (error) {
-        console.log(error)
-        res.status(400).json({message:'No Found'})
-    }
-}
+
 export const DeleteUser = async (req, res) =>{
     try {
         const deletes = await prisma.usuario.delete({

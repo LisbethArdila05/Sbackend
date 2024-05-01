@@ -7,8 +7,5 @@ routes
 .post('/', postData)
 .get('/', GetDataDB)
 .get('/primer', GetFirst)
-.post('/info', getInfo)
-
-
-
+  
 export default routes;     

@@ -30,8 +30,8 @@ model sensor{
   sTemperaturaF Float
   sHumedadS Int
   fecha DateTime
-  nombreUsuario Usuario @relation(fields: [nombreUser], references: [nombreUsuario])
-  nombreUser String
+  nombreUsuario Usuario @relation(fields: [idUser], references: [id])
+  idUser Int
   tipoPlanta planta @relation(fields: [idtipoPlanta], references: [id])//guarda el tipo de planta que el usuario seleccione en le frontend
   idtipoPlanta Int
 }

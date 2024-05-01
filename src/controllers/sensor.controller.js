@@ -19,11 +19,11 @@ export const getInfo = async (req, res) => {
         console.log(error)
         res.status(400).json({message:'Not Found'})
     } 
-}
+}    
 export const postData = async (req, res) => {
-    let {idPlanta} = req.body
+    let {idPlanta, idUser} = req.body
     idPlanta = Number(idPlanta)
-    console.log(typeof idPlanta)
+    idUser = Number(idUser)
     try {
         const NewsensorData = await prisma.sensor.create({
             data: {
@@ -33,10 +33,10 @@ export const postData = async (req, res) => {
                 sHumedadS: datosArduino.humedadS,
                 fecha: new Date(), 
                 idtipoPlanta: idPlanta,
-                nombreUser: nombreU
+                idUser: idUser
             }
         });
-        res.status(200).json({message:'Analisis creado'})
+        res.status(200).json({message:'Analisis creado', NewsensorData})
     } catch (error) {
         res.status(400).json({message:'Error en el analisis'})
         console.log(error)

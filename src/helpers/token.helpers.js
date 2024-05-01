@@ -1,8 +1,11 @@
 import jws from 'jsonwebtoken'
 
 export const tokenSign = async (login) =>{
+    console.log(login.id, login.email)
     return jws.sign({
         nombreUsuario: login.nombreUsuario,
+        id: login.id,
+        email: login.email
     },
     process.env.JWL_SECRET,
     {
