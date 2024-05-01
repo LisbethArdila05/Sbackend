@@ -50,7 +50,7 @@ export const getInfo = async (req, res) => {
     try {
         const decode = req.body.usuario
         nombreU = decode
-        console.log(nombreU) 
+       // console.log(nombreU) 
     } catch (error) {
         console.log(error)
         res.status(400).json({message:'Not Found'})
