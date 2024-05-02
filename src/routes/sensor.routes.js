@@ -5,7 +5,7 @@ const routes = Router();
 
 routes
 .post('/', postData)
-.get('/', GetDataDB)
-.get('/primer', GetFirst)
+.get('/:id', GetDataDB)
+.get('/primer/:id', GetFirst)
   
 export default routes;     

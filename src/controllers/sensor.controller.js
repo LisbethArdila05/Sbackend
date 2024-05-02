@@ -31,12 +31,16 @@ export const postData = async (req, res) => {
         console.log(error)
     }
 }
-
 export const GetDataDB = async (req, res) => {
+    //enviar un parametro idUser
+    const {id} = req.params
+    
     try {
         const GetSensor = await prisma.sensor.findMany({
             where:{
-                idUser: idUser
+                AND: {
+                    idUser: Number(id)
+                }
             },
             include:{
                 tipoPlanta: true
@@ -44,14 +48,20 @@ export const GetDataDB = async (req, res) => {
         })
         res.status(200).json({GetSensor})
     } catch (error) {
+        console.log(error)
         res.status(500).json({message:'Datos no existentes'})
     }
 }
 export const GetFirst = async (req, res) => {
+    //enviar un parametro idUser
+    const {id} = req.params
     try {
         const GetFirstsensor = await prisma.sensor.findFirst({
+            
             where:{
-                idUser: idUser
+                AND: {
+                    idUser: Number(id)
+                }
             },
             orderBy:{
                 fecha: 'desc'
