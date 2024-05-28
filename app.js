@@ -12,6 +12,7 @@ app.use(bodyParser.json())
 app.use(express.json())
 app.use(cors({
     origin: 'http://localhost:8100',
+    // origin: 'http://192.168.0.104:8100',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type,Authorization'
 }))

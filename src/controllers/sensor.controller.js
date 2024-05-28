@@ -6,7 +6,7 @@ dataEmitter.on('dataReceived', async(data) => {
     try {
         datosArduino = data
     } catch (error) {
-        console.log('error en la conexión',error);
+        console.log('error en la conexión',error); 
     }
 }); 
 export const postData = async (req, res) => {
@@ -25,6 +25,7 @@ export const postData = async (req, res) => {
                 idUser: idUser
             }
         });
+        
         res.status(200).json({message:'Analisis creado', NewsensorData})
     } catch (error) {
         res.status(400).json({message:'Error en el analisis'})
